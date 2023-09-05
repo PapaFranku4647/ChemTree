@@ -518,8 +518,6 @@ function getElementInfo(element)
                 textboxHolder.style.visibility = 'visible';
                 textboxSub.style.visibility = 'visible';
                 textboxCenter.style.visibility = 'visible';
-
-
                 return info  
             }
         })
