@@ -331,13 +331,13 @@ body {
 }
 
 
-
-
-div[id="textbox text"]
+div[id="textbox holder"]
 {
+    text-align: center;
     float: right;
     display: flex;
-    height: 85px;
+    flex-direction: column;
+    height: 115px;
     width: 40vw;
     border-radius: 15px;
     padding: 8px;
@@ -346,6 +346,53 @@ div[id="textbox text"]
     visibility: hidden;
 }
 
+div[id="textbox text"]
+{
+    text-align: center;
+    /* float: right; */
+    display: flex;
+    /* height: 100px; */
+    /* border-radius: 15px; */
+    /* padding: 8px; */
+    /* box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); */
+    /* margin: 8px; */
+    visibility: hidden;
+}
+
+div[id="textbox sub"]
+{
+    text-align: center;
+    flex-direction: column;
+
+    float: right;
+    clear: right;
+    display: flex;
+    height: 153px;
+    width: 40vw;
+    border-radius: 15px;
+    padding: 8px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 8px;
+    visibility: hidden;
+
+}
+
+div[id="textbox center"]
+{
+    text-align: center;
+    flex-direction: column;
+
+    float: left;
+    display: flex;
+    height: 300px;
+    width: 452px;
+    border-radius: 15px;
+    padding: 8px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 8px;
+    visibility: hidden;
+
+}
 
 div[id="textbox atom"]
 {

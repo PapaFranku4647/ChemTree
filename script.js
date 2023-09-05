@@ -7,6 +7,9 @@ const arrow = document.getElementsByClassName("arrow bounce");
 const textboxName = document.getElementById("textbox name");
 const textboxText = document.getElementById("textbox text");
 const textboxAtom = document.getElementById("textbox atom");
+const textboxHolder = document.getElementById("textbox holder");
+const textboxSub = document.getElementById("textbox sub");
+const textboxCenter = document.getElementById("textbox center");
 
 const atomCanvas = document.getElementById('atom canvas');
 const atomCtx = atomCanvas.getContext('2d');
@@ -510,8 +513,13 @@ function getElementInfo(element)
         .then(data => {
             const info = data[elementName];
             if (info) {
-                textboxText.textContent=info.text;
-                textboxText.style.visibility = 'visible';
+                console.log(textboxText.innerHTML);
+                textboxText.innerHTML= info.text;
+                textboxHolder.style.visibility = 'visible';
+                textboxSub.style.visibility = 'visible';
+                textboxCenter.style.visibility = 'visible';
+
+
                 return info  
             }
         })
