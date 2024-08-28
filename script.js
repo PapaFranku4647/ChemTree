@@ -21,6 +21,8 @@ const nucleusRadius = 20;
 const electronRadius = 5;
 let angle = [0, 0, 0, 0, 0, 0, 0];  // Different angles for each shell
 let animationFrameId;
+let isArrowVisible = false;
+
 
 const fillingOrder = [
     { shell: 0, subshell: 's', maxElectrons: 2 },
@@ -230,8 +232,8 @@ function setActiveElement(element, index) {
         wikiLink.href = "#";
         wikiLink.style.visibility = "hidden";
         dash.style.visibility = 'hidden';
-    arrow[0].style.visibility = "hidden";
-
+        arrow[0].style.visibility = "hidden";
+        isArrowVisible = false;
         resetLegend();
     } else { // Else, make the clicked element the active element
         element.classList.add('active');
@@ -242,7 +244,17 @@ function setActiveElement(element, index) {
         dash.style.visibility = 'visible';
         wikiLink.style.visibility = "visible";
         currentActive = element;
-        arrow[0].style.visibility = "visible";
+        
+        if(window.scrollY <= 75)
+        {
+            arrow[0].style.visibility = "visible";
+            isArrowVisible = true;
+        }
+        else 
+        {
+            arrow[0].style.visibility = "hidden";
+            isArrowVisible = false;
+        }
 
         highlightLegend(element)
     }
@@ -399,6 +411,8 @@ function clearActiveElement(e) {
         currentActive = null;
         updateOpacity();
         arrow[0].style.visibility = "hidden";
+        isArrowVisible = false;
+
 
 
         const allLegendItems = document.querySelectorAll('.legend-item');
@@ -414,6 +428,18 @@ function clearActiveElement(e) {
     }
     
    
+}
+
+window.addEventListener('scroll', handleScroll);
+
+function handleScroll() {
+    if (isArrowVisible && window.scrollY > 200) {
+        arrow[0].style.visibility = 'hidden';
+        isArrowVisible = false;
+    } else if (!isArrowVisible && window.scrollY <= 75 && currentActive) {
+        arrow[0].style.visibility = 'visible';
+        isArrowVisible = true;
+    }
 }
 
 function highlightLegend(element) {
