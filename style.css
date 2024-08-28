@@ -337,7 +337,7 @@ div[id="textbox holder"]
     float: right;
     display: flex;
     flex-direction: column;
-    height: 115px;
+    height: 135px;
     width: 40vw;
     border-radius: 15px;
     padding: 8px;
@@ -366,7 +366,7 @@ div[id="textbox sub"]
     float: right;
     clear: right;
     display: flex;
-    height: 153px;
+    height: 133px;
     width: 40vw;
     border-radius: 15px;
     padding: 8px;
@@ -384,7 +384,7 @@ div[id="textbox center"]
     float: left;
     display: flex;
     height: 300px;
-    width: 452px;
+    width: 430px;
     border-radius: 15px;
     padding: 8px;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
@@ -416,3 +416,21 @@ canvas[id="atom canvas"]
 
 }
 
+
+#textbox-div {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  
+  div[id="textbox atom"],
+  div[id="textbox center"] {
+    flex: 0 0 auto;
+  }
+  
+  div[id="textbox holder"],
+  div[id="textbox sub"] {
+    flex: 1 0 40%;
+  }
+  
